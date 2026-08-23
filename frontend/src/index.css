@@ -1,0 +1,241 @@
+/* ─── Google Fonts Import ─────────────────────────────────────────────────────── */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600&display=swap');
+
+/* ─── Tailwind Base Directives ───────────────────────────────────────────────── */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─── CSS Custom Properties ──────────────────────────────────────────────────── */
+:root {
+  /* Colors */
+  --color-bg: #FFFFFF;
+  --color-navy: #0A1628;
+  --color-blue: #1B4FD8;
+  --color-sky: #60A5FA;
+  --color-slate: #475569;
+  --color-muted: #F8FAFC;
+  --color-border: #E2E8F0;
+  --color-gold: #C9A84C;
+
+  /* Typography */
+  --font-display: 'Playfair Display', Georgia, serif;
+  --font-body: 'Inter', system-ui, sans-serif;
+
+  /* Spacing */
+  --section-padding: 120px;
+  --container-max: 1400px;
+  --container-pad: clamp(1.5rem, 5vw, 5rem);
+
+  /* Animation */
+  --ease-luxury: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --ease-smooth: cubic-bezier(0.43, 0.195, 0.02, 1);
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --duration-fast: 300ms;
+  --duration-base: 600ms;
+  --duration-slow: 1000ms;
+}
+
+/* ─── Reset & Base ────────────────────────────────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  -webkit-text-size-adjust: 100%;
+  scroll-behavior: auto; /* Lenis handles smooth scroll */
+  overflow-x: hidden;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--color-bg);
+  color: var(--color-navy);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+/* Lenis smooth scroll root */
+html.lenis {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto;
+}
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+/* ─── Typography Scale ────────────────────────────────────────────────────────── */
+h1, h2, h3, h4, h5 {
+  font-family: var(--font-display);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: var(--color-navy);
+}
+
+.display-2xl {
+  font-size: clamp(3rem, 8vw, 7rem);
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  font-family: var(--font-display);
+  font-weight: 600;
+}
+
+.display-xl {
+  font-size: clamp(2.25rem, 5vw, 5rem);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  font-family: var(--font-display);
+}
+
+.display-lg {
+  font-size: clamp(1.75rem, 3.5vw, 3.5rem);
+  line-height: 1.15;
+  font-family: var(--font-display);
+}
+
+.label-sm {
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  font-family: var(--font-body);
+}
+
+/* ─── Utility Components ──────────────────────────────────────────────────────── */
+@layer components {
+  .container-luxury {
+    @apply w-full mx-auto px-6 md:px-12 lg:px-20;
+    max-width: var(--container-max);
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 px-8 py-4 
+           bg-h-navy text-white font-body font-medium text-sm tracking-widest uppercase
+           transition-all duration-300 relative overflow-hidden;
+    letter-spacing: 0.12em;
+  }
+
+  .btn-primary::after {
+    content: '';
+    @apply absolute inset-0 bg-h-blue opacity-0 transition-opacity duration-300;
+  }
+
+  .btn-primary:hover::after {
+    @apply opacity-100;
+  }
+
+  .btn-primary span {
+    @apply relative z-10;
+  }
+
+  .btn-outline {
+    @apply inline-flex items-center justify-center gap-2 px-8 py-4
+           border border-h-navy text-h-navy font-body font-medium text-sm
+           transition-all duration-300 tracking-widest uppercase;
+    letter-spacing: 0.12em;
+  }
+
+  .btn-outline:hover {
+    @apply bg-h-navy text-white;
+  }
+
+  .section-label {
+    @apply label-sm text-h-blue mb-4 block;
+  }
+
+  .section-divider {
+    @apply w-12 h-px bg-h-blue mb-6 block;
+  }
+
+  /* Property card skeleton */
+  .skeleton {
+    background: linear-gradient(90deg, #f0f0f0 25%, #e8e8e8 50%, #f0f0f0 75%);
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+  }
+}
+
+/* ─── Animations ──────────────────────────────────────────────────────────────── */
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(40px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+/* GSAP will-change hints */
+.will-animate {
+  will-change: transform, opacity;
+}
+
+/* ─── Scrollbar Styling ───────────────────────────────────────────────────────── */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-muted);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-blue);
+  border-radius: 3px;
+}
+
+/* ─── Selection ───────────────────────────────────────────────────────────────── */
+::selection {
+  background-color: var(--color-blue);
+  color: white;
+}
+
+/* ─── Focus Outline ───────────────────────────────────────────────────────────── */
+:focus-visible {
+  outline: 2px solid var(--color-blue);
+  outline-offset: 3px;
+}
+
+/* ─── Image Defaults ──────────────────────────────────────────────────────────── */
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/* ─── Three.js Canvas ─────────────────────────────────────────────────────────── */
+canvas {
+  display: block;
+  touch-action: none;
+}
+
+/* ─── Overflow clip for parallax containers ───────────────────────────────────── */
+.clip-hidden {
+  overflow: hidden;
+}
+
+/* ─── Text split animation (GSAP SplitText base) ─────────────────────────────── */
+.split-word {
+  display: inline-block;
+  overflow: hidden;
+}
+.split-char {
+  display: inline-block;
+}
+
