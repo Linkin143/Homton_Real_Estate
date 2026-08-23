@@ -55,29 +55,22 @@ export function useScrollPinHorizontal(containerRef, innerRef, options = {}) {
     const container = containerRef.current
     const inner = innerRef.current
 
-    // Only enable the pinned horizontal scroll on desktop (≥1024px).
-    // On smaller screens the gallery falls back to native touch scroll-snap,
-    // so pinning must be skipped to avoid breaking vertical scrolling.
     const ctx = gsap.context(() => {
-      const mm = gsap.matchMedia()
+      const totalWidth = inner.scrollWidth - container.clientWidth
 
-      mm.add('(min-width: 1024px)', () => {
-        const totalWidth = inner.scrollWidth - container.clientWidth
-
-        gsap.to(inner, {
-          x: -totalWidth,
-          ease: 'none',
-          scrollTrigger: {
-            trigger: container,
-            start: 'top top',
-            end: () => `+=${totalWidth}`,
-            scrub: 1.2,
-            pin: true,
-            anticipatePin: 1,
-            invalidateOnRefresh: true,
-            ...options,
-          },
-        })
+      gsap.to(inner, {
+        x: -totalWidth,
+        ease: 'none',
+        scrollTrigger: {
+          trigger: container,
+          start: 'top top',
+          end: () => `+=${totalWidth}`,
+          scrub: 1.2,
+          pin: true,
+          anticipatePin: 1,
+          invalidateOnRefresh: true,
+          ...options,
+        },
       })
     })
 

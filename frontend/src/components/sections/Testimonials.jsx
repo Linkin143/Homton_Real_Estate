@@ -97,7 +97,7 @@ export default function Testimonials() {
       </div>
 
       <div className="container-luxury relative z-10">
-        <div className="grid lg:grid-cols-[1fr_1.4fr] gap-10 lg:gap-20 items-center">
+        <div className="grid lg:grid-cols-[1fr_1.4fr] gap-20 items-center">
 
           {/* ─── Left ─────────────────────────────────────────────────────────── */}
           <div>
@@ -149,7 +149,7 @@ export default function Testimonials() {
           </div>
 
           {/* ─── Right: Testimonial card ──────────────────────────────────────── */}
-          <div className="relative min-h-[460px] sm:min-h-[420px]">
+          <div className="relative h-[420px]">
             <AnimatePresence mode="wait" custom={direction}>
               <motion.div
                 key={t.id}
@@ -163,14 +163,14 @@ export default function Testimonials() {
                 dragConstraints={{ left: 0, right: 0 }}
                 onDragEnd={handleDragEnd}
                 style={{ x: dragX }}
-                className="absolute inset-0 bg-white p-5 sm:p-8 md:p-10 shadow-luxury flex flex-col cursor-grab active:cursor-grabbing select-none"
+                className="absolute inset-0 bg-white p-10 shadow-luxury flex flex-col cursor-grab active:cursor-grabbing select-none"
               >
                 {/* Top accent */}
                 <div className="w-12 h-1 mb-6" style={{ backgroundColor: t.color }} />
 
                 <StarRating />
 
-                <blockquote className="font-display text-h-navy text-base md:text-lg leading-relaxed italic mb-8 flex-1">
+                <blockquote className="font-display text-h-navy text-lg leading-relaxed italic mb-8 flex-1">
                   &ldquo;{t.quote}&rdquo;
                 </blockquote>
 

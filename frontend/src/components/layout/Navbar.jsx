@@ -94,7 +94,7 @@ export default function Navbar() {
             </a>
 
             {/* ─── Desktop Nav Links ─────────────────────────────────────────── */}
-            <ul className="hidden md:flex items-center gap-6 lg:gap-10">
+            <ul className="hidden lg:flex items-center gap-10">
               {navLinks.map((link) => (
                 <li key={link.label}>
                   <a
@@ -124,7 +124,7 @@ export default function Navbar() {
               {/* Hamburger */}
               <button
                 onClick={() => setMenuOpen(!menuOpen)}
-                className="md:hidden flex flex-col gap-1.5 p-2 group"
+                className="lg:hidden flex flex-col gap-1.5 p-2 group"
                 aria-label="Toggle menu"
               >
                 <span
@@ -162,7 +162,7 @@ export default function Navbar() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.3, ease: [0.25, 0.46, 0.45, 0.94] }}
-            className="fixed inset-x-0 top-20 z-40 bg-white/95 backdrop-blur-md shadow-luxury border-b border-h-border md:hidden"
+            className="fixed inset-x-0 top-20 z-40 bg-white/95 backdrop-blur-md shadow-luxury border-b border-h-border lg:hidden"
           >
             <div className="container-luxury py-8">
               <ul className="flex flex-col gap-6">

@@ -77,12 +77,12 @@ export default function BrandStatement() {
     <section ref={sectionRef} id="about" className="relative bg-h-muted overflow-hidden py-section">
       {/* Decorative background */}
       <div className="absolute inset-0 pointer-events-none">
-        <div className="hidden lg:block absolute top-0 right-0 w-1/2 h-full bg-white" />
+        <div className="absolute top-0 right-0 w-1/2 h-full bg-white" />
         <div className="absolute top-20 left-0 w-96 h-96 rounded-full bg-blue-50/50 -translate-x-1/2" />
       </div>
 
       <div className="container-luxury relative z-10">
-        <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 xl:gap-20 items-center">
+        <div className="grid lg:grid-cols-2 gap-20 items-center">
 
           {/* ─── Left: Statement ─────────────────────────────────────────────── */}
           <div>
@@ -126,12 +126,12 @@ export default function BrandStatement() {
           </div>
 
           {/* ─── Right: Stats ─────────────────────────────────────────────────── */}
-          <div className="bg-white p-5 sm:p-8 lg:p-10 shadow-luxury">
+          <div className="bg-white p-10 shadow-luxury">
             <div className="grid grid-cols-2 gap-px bg-h-border">
               {stats.map((stat, i) => (
                 <motion.div
                   key={stat.label}
-                  className="bg-white p-5 sm:p-6 lg:p-8 flex flex-col"
+                  className="bg-white p-8 flex flex-col"
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, amount: 0.4 }}
@@ -139,7 +139,7 @@ export default function BrandStatement() {
                 >
                   <span
                     ref={(el) => (statRefs.current[i] = el)}
-                    className="font-display text-h-navy font-semibold text-3xl sm:text-4xl xl:text-5xl mb-2"
+                    className="font-display text-h-navy font-semibold text-4xl xl:text-5xl mb-2"
                   >
                     {stat.prefix}0{stat.suffix}
                   </span>
