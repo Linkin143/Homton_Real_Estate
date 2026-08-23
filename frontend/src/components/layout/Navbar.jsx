@@ -58,7 +58,7 @@ export default function Navbar() {
         <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-white/15 to-transparent opacity-60" />
         <div className="pointer-events-none absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-white/40 to-transparent" />
         <div className="container-luxury">
-          <nav className="flex items-center justify-between h-20 md:h-20">
+          <nav className="flex items-center justify-between h-16 md:h-16">
 
             {/* ─── Logo ──────────────────────────────────────────────────────── */}
             <a href="/" className="flex items-center gap-3 group">
