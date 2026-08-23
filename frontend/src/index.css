@@ -239,3 +239,35 @@ canvas {
   display: inline-block;
 }
 
+/* ─── Responsive Section Padding ──────────────────────────────────────────────── */
+/* Tailwind's `py-section` = 120px top/bottom. Scale it down on smaller screens
+   so sections aren't excessively tall on phones/tablets. */
+.py-section {
+  padding-top: 64px;
+  padding-bottom: 64px;
+}
+@media (min-width: 768px) {
+  .py-section {
+    padding-top: 88px;
+    padding-bottom: 88px;
+  }
+}
+@media (min-width: 1024px) {
+  .py-section {
+    padding-top: 120px;
+    padding-bottom: 120px;
+  }
+}
+
+/* Scale the `pt-section` / `pb-section` single-side helpers too */
+.pt-section { padding-top: 64px; }
+.pb-section { padding-bottom: 64px; }
+@media (min-width: 768px) {
+  .pt-section { padding-top: 88px; }
+  .pb-section { padding-bottom: 88px; }
+}
+@media (min-width: 1024px) {
+  .pt-section { padding-top: 120px; }
+  .pb-section { padding-bottom: 120px; }
+}
+

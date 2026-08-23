@@ -86,7 +86,7 @@ export default function ContactCTA() {
       </div>
 
       <div className="container-luxury relative z-10">
-        <div className="grid lg:grid-cols-[1fr_1.3fr] gap-16 xl:gap-24 items-start">
+        <div className="grid lg:grid-cols-[1fr_1.3fr] gap-10 lg:gap-16 xl:gap-24 items-start">
 
           {/* ─── Left: Info ──────────────────────────────────────────────────── */}
           <div>
@@ -135,7 +135,7 @@ export default function ContactCTA() {
           </div>
 
           {/* ─── Right: Form ─────────────────────────────────────────────────── */}
-          <div className="bg-white p-10 shadow-luxury">
+          <div className="bg-white p-6 sm:p-8 lg:p-10 shadow-luxury">
             {status === 'success' ? (
               <motion.div
                 className="flex flex-col items-center justify-center py-16 text-center"

@@ -71,7 +71,7 @@ function PropertyCard({ property, index }) {
   return (
     <motion.article
       ref={cardRef}
-      className="flex-shrink-0 w-[340px] md:w-[420px] xl:w-[480px] relative group cursor-pointer"
+      className="flex-shrink-0 snap-start w-[280px] sm:w-[340px] md:w-[400px] xl:w-[480px] relative group cursor-pointer"
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
       onMouseMove={handleMove}
@@ -205,12 +205,16 @@ export default function FeaturedProperties() {
         </div>
       </div>
 
-      {/* ─── Pinned Horizontal Scroll Gallery ────────────────────────────────── */}
-      <div ref={containerRef} className="overflow-hidden">
+      {/* ─── Horizontal Scroll Gallery ───────────────────────────────────────── */}
+      {/* Desktop (≥1024px): GSAP-pinned scrub scroll (width:max-content).          */}
+      {/* Mobile/Tablet: native touch scroll with snap points.                     */}
+      <div
+        ref={containerRef}
+        className="overflow-x-auto lg:overflow-hidden snap-x snap-mandatory lg:snap-none [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
+      >
         <div
           ref={innerRef}
-          className="flex gap-6 px-6 md:px-12 lg:px-20 pb-section"
-          style={{ width: 'max-content' }}
+          className="flex gap-4 sm:gap-6 px-6 md:px-12 lg:px-20 pb-section w-max lg:w-max"
         >
           {properties.map((property, i) => (
             <PropertyCard key={property._id || i} property={property} index={i} />

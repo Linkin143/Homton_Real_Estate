@@ -255,7 +255,7 @@ export default function Footer() {
             © {new Date().getFullYear()} Homton Real Estate. All rights reserved.&nbsp;
             <span className="text-white/20">Luxury Real Estate Advisory &amp; Brokerage</span>
           </p>
-          <div className="flex items-center gap-6">
+          <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2">
             {['Privacy Policy', 'Terms of Service', 'Cookie Policy'].map((item) => (
               <a
                 key={item}

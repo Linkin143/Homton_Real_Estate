@@ -172,11 +172,11 @@ export default function Hero() {
         <p className="font-display text-white font-semibold text-2xl mb-1">$31,000,000</p>
         <p className="font-body text-white/50 text-[11px] mb-3">Côte d&apos;Azur Waterfront Estate</p>
         <div className="flex items-center gap-3 text-white/35 text-[10px] font-body tracking-wide">
-          <span>6 Beds</span>
+          <span>9 Beds</span>
           <span className="w-1 h-1 rounded-full bg-white/25" />
-          <span>7 Baths</span>
+          <span>11 Baths</span>
           <span className="w-1 h-1 rounded-full bg-white/25" />
-          <span>12,400 sq ft</span>
+          <span>18,500 sq ft</span>
         </div>
       </motion.div>
 

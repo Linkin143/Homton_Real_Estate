@@ -96,7 +96,7 @@ export default function VirtualTour() {
       />
 
       <div className="container-luxury relative z-10">
-        <div className="grid lg:grid-cols-2 gap-16 xl:gap-24 items-center">
+        <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 xl:gap-24 items-center">
 
           {/* ─── Left: Content ───────────────────────────────────────────────── */}
           <div ref={contentRef}>
@@ -155,7 +155,7 @@ export default function VirtualTour() {
 
           {/* ─── Right: Photo Gallery ─────────────────────────────────────────── */}
           <motion.div
-            className="relative h-[500px] lg:h-[600px]"
+            className="relative h-[320px] sm:h-[420px] md:h-[500px] lg:h-[600px]"
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true, amount: 0.3 }}
